@@ -1,11 +1,11 @@
-import Nabvar from "./Components/NavBar/Nabvar";
+import Navbar from "./Components/NavBar/NavBar";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div>
-      <Nabvar />
+      <Navbar />
       <ItemListContainer greeting="Proximamente contenido..." />
     </div>
   );

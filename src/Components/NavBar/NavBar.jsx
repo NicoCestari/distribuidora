@@ -1,7 +1,7 @@
 import './styles.css';
 import CartWidget from '../CartWidget/CartWidget';
 
-const Nabvar = () => {
+const Navbar = () => {
     return (
         <div className="navbar-container">
             <div>
@@ -28,4 +28,4 @@ const Nabvar = () => {
     );
 };
 
-export default Nabvar;
+export default Navbar;
