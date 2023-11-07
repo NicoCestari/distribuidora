@@ -1,29 +1,30 @@
 import './styles.css';
 import CartWidget from '../../Components/CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <div className="navbar-container">
             <div>
-                <img src={"./Logo.png"} alt="Distribuidora" height={"200px"} weigth={"200px"} />
+                <h1>Futuro Logo</h1>
             </div>
             <div>
                 <ul className='list-container'>
                     <li>
-                        <button className='button-style'>Petshop</button>
+                        <Link to={'/category/electronics'} className='button-style'>Joyeria</Link>
                     </li>
                     <li>
-                        <button className='button-style'>Acuario</button>
+                        <Link to={'/category/jewelery'} className='button-style'>Electronicos</Link>
                     </li>
                     <li>
-                        <button className='button-style'>Pajareria</button>
+                        <Link to={"/category/men's-clothing"} className='button-style'>Hombre</Link>
                     </li>
                     <li>
-                        <button className='button-style'>Semilleria</button>
+                        <Link to={"/category/:women's-clothing"} className='button-style'>Mujer</Link>
                     </li>
-                </ul>
+                </ul> 
             </div>
-            <CartWidget />
+           {/*<CartWidget />*/}
         </div>
     );
 };

@@ -1,67 +1,50 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import './styles.css';
-import { useEffect, useState } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
+import { Link, useParams } from "react-router-dom";
 
-
-const products = [
-
-    { "id": 1, "img": "./image/RC.jpeg", "title": "Royal Canin", "price": "$5600", },
-    { "id": 2, "img": "./image/pp.jpeg", "title": "Proplan", "price": "$5800" },
-    { "id": 3, "img": "./image/EU.jpeg", "title": "Eukanuba", "price": "$5000" },
-    { "id": 4, "img": "./image/OP.jpeg", "title": "Old Prince", "price": "$4000" },
-    { "id": 5, "img": "./image/GC1.jpg", "title": "Golocan", "price": "$3500" },
-    { "id": 6, "img": "./image/TT1.jpg", "title": "Tetra", "price": "$4200" },
-
-];
 
 const ItemList = () => {
     const [items, setItems] = useState([]);
-    const [itemSelectedId, setItemSelectedId] = useState(null);
-    const [itemSelected, setItemSelected] = useState(null);
+    const { id } = useParams();
 
-    const fetchProducts = () => {
-        fetch(products)
+    const fetchProducts = fetch('https://fakestoreapi.com/products')
         .then((res) => res.json())
-        .then((json) => setItems(json))
-        .catch((error) => console.log(error))
-    };
-      
-
-    const fetchProduct = () => {
-        fetch(products)
-        .then((res) => res.json())
-        .then((json) => setItem(json))
+        .then((json) => json)
         .catch((error) => console.log(error));
-
-    };
-
     useEffect(() => {
-        fetchProduct();
-    }, [itemSelectedId]);
+        const myFunction = async () => {
+            if (id) {
+                const filteredItems = await fetchProducts.then((productList) => {
+                    return productList.filter((product) => {
+                        const idFormat = id.category.includes('-')
+                            ? id.replace('-', ' ')
+                            : id;
+                        return product.category === idFormat;
+                    });
 
-    useEffect(() => {
-        fetchProducts();
-    }, []);
+                });
+                setItems(filteredItems);
+            } else {
+                setItems(fetchProducts);
+            }
+        };
+        myFunction();
+    }, [id])
 
 
     return (
         <div className="item-list-container">
-            {itemSelectedId && (
-                <div>
-                    <ItemDetail itemSelected={itemSelected} />
-                </div>
-            )}
             {items.map((item) => {
                 return (
-                    <div key={item.id} onClick={() => setItemSelectedId(item.id)}>
-                        <Item 
+
+                    <Link to={'/item/' + item.id} key={item.id}>
+                        <Item
                             image={item.image}
                             title={item.title}
                             price={item.price}
                         />
-                    </div>    
+                    </Link>
                 );
             })};
         </div>

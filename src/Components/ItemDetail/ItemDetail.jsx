@@ -1,7 +1,5 @@
-import './styles.css';
 
 const ItemDetail = ({itemSelected}) => {
-    const { image, title, price } = itemSelected;
 
   return (
     <div>
