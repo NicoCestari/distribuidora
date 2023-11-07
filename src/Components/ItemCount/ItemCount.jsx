@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './styles.css';
 
 const ItemCount = () => {
   const [ count, setCount] = useState (0);
