@@ -22,9 +22,12 @@ const Navbar = () => {
                     <li>
                         <Link to={"/category/women's-clothing"} className='button-style'>Mujer</Link>
                     </li>
+                    <li>
+                        <Link to={'/'} className='button-style'>Todos</Link>
+                    </li>
                 </ul> 
             </div>
-           {/*<CartWidget />*/}
+           <CartWidget />
         </div>
     );
 };

@@ -4,6 +4,7 @@ import Navbar from "./pages/NavBar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer";
 
+
 function App() {
   return (
     <BrowserRouter>
