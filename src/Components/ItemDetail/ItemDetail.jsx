@@ -6,7 +6,7 @@ const ItemDetail = ({ itemSelected }) => {
     <div className="detail-container">
       <img src={itemSelected?.image} alt={itemSelected?.title} />
       <h2>{itemSelected?.title}</h2>
-      <p>{itemSelected?.price}</p>
+      <p className='detail-p'>${itemSelected?.price}</p>
     </div>
   );
 };
