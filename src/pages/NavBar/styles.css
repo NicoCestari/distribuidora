@@ -30,4 +30,6 @@
     font-size: 20px;
     cursor: pointer;
     color: white;
+    text-decoration: none;
+    margin: 0px 20px 0px 20px;
 }

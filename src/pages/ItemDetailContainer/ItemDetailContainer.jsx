@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ItemDetail from "../../Components/ItemDetail/ItemDetail";
+import ItemDetail from "../../Components/ItemDetail/ItemDetail"; 
+import './styles.css';
 
 const ItemDetailContainer = () => {
     const [itemSelected, setItemSelected] = useState(null);
@@ -19,7 +20,7 @@ const ItemDetailContainer = () => {
     }, []);
 
     return (
-        <div>
+        <div className="detail-container">
             {id && (
                 <div>
                     <ItemDetail itemSelected={itemSelected} />

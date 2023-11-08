@@ -8,36 +8,31 @@ const ItemList = () => {
     const [items, setItems] = useState([]);
     const { id } = useParams();
 
-    const fetchProducts = fetch('https://fakestoreapi.com/products')
-        .then((res) => res.json())
-        .then((json) => json)
-        .catch((error) => console.log(error));
     useEffect(() => {
-        const myFunction = async () => {
-            if (id) {
-                const filteredItems = await fetchProducts.then((productList) => {
-                    return productList.filter((product) => {
-                        const idFormat = id.category.includes('-')
-                            ? id.replace('-', ' ')
-                            : id;
-                        return product.category === idFormat;
-                    });
+        const fetchProducts = async () => {
+            try {
+                const response = await fetch('https://fakestoreapi.com/products');
+                const productList = await response.json();
 
-                });
-                setItems(filteredItems);
-            } else {
-                setItems(fetchProducts);
+                if (id) {
+                    const idFormat = id.includes('-') ? id.replace('-', ' ') : id;
+                    const filteredItems = productList.filter(product => product.category === idFormat);
+                    setItems(filteredItems);
+                } else {
+                    setItems(productList);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
         };
-        myFunction();
-    }, [id])
 
+        fetchProducts();
+    }, [id]);
 
     return (
-        <div className="item-list-container">
+        <div className='item-list-container'>
             {items.map((item) => {
                 return (
-
                     <Link to={'/item/' + item.id} key={item.id}>
                         <Item
                             image={item.image}

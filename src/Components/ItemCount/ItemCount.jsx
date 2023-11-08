@@ -15,7 +15,7 @@ const ItemCount = () => {
     setCount(count - 1);
   };
   return (
-    <div>
+    <div className="button-count">
       <button onClick={onSubtract}>-</button>
       <span>{count}</span>
       <button onClick={onAdd}>+</button>

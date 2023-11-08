@@ -20,7 +20,7 @@ const Navbar = () => {
                         <Link to={"/category/men's-clothing"} className='button-style'>Hombre</Link>
                     </li>
                     <li>
-                        <Link to={"/category/:women's-clothing"} className='button-style'>Mujer</Link>
+                        <Link to={"/category/women's-clothing"} className='button-style'>Mujer</Link>
                     </li>
                 </ul> 
             </div>
