@@ -21,6 +21,6 @@ const ItemCount = () => {
       <button onClick={onAdd}>+</button>
     </div>
   )
-}
+};
 
 export default ItemCount;
