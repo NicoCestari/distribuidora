@@ -1,13 +1,15 @@
+
 .item-list-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     list-style: none;
     border: 5px solid #263143;
-    /* background-color: #263143; */
 }
-/* Mañana agregar card al Item Detail Container 
-y el Filtrado de categorias*/
+
+.item-list-container title {
+   font-size: 200px;
+}
