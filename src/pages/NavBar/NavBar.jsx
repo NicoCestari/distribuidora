@@ -11,10 +11,10 @@ const Navbar = () => {
             <div>
                 <ul className='list-container'>
                     <li>
-                        <Link to={'/category/electronics'} className='button-style'>Joyeria</Link>
+                        <Link to={'/category/jewelery'} className='button-style'>Joyeria</Link>
                     </li>
                     <li>
-                        <Link to={'/category/jewelery'} className='button-style'>Electronicos</Link>
+                        <Link to={'/category/electronics'} className='button-style'>Electronicos</Link>
                     </li>
                     <li>
                         <Link to={"/category/men's-clothing"} className='button-style'>Hombre</Link>
