@@ -33,7 +33,7 @@ const ItemList = () => {
         <div className='item-list-container'>
             {items.map((item) => {
                 return (
-                    <Link to={'/item/' + item.id} key={item.id}>
+                    <Link to={'/item/' + item.id} className="inter-container" key={item.id}>
                         <Item
                             image={item.image}
                             title={item.title}
@@ -41,7 +41,7 @@ const ItemList = () => {
                         />
                     </Link>
                 );
-            })};
+            })}
         </div>
     );
 };
