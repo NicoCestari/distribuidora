@@ -3,17 +3,22 @@ import ItemListContainer from "./pages/ItemListContainer/ItemListContainer";
 import Navbar from "./pages/NavBar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer";
+import Cart from "./pages/Cart/Cart";
+import CartProvider from "./Context/CartProvider";
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="category/:id" element={<ItemListContainer />} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
-      </Routes>
+      <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="category/:id" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </CartProvider>
     </BrowserRouter>
   );
 }

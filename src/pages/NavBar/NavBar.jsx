@@ -1,8 +1,11 @@
 import './styles.css';
 import CartWidget from '../../Components/CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 
 const Navbar = () => {
+    const { productQuantity } = useContext(CartContext);
     return (
         <div className="navbar-container">
             <div>
@@ -25,9 +28,13 @@ const Navbar = () => {
                     <li>
                         <Link to={'/'} className='button-style'>Home</Link>
                     </li>
-                </ul> 
+                </ul>
             </div>
-           <CartWidget />
+            <div>
+                <CartWidget />
+                <h6>{productQuantity}</h6>
+            </div>
+
         </div>
     );
 };

@@ -1,9 +1,7 @@
-import { useState } from "react";
+
 import './styles.css';
 
-const ItemCount = () => {
-  const [ count, setCount] = useState (0);
-  const stock = 25;
+const ItemCount = ({ stock, count, setCount }) => {
 
   const onAdd = () => {
     if (count === stock) return;

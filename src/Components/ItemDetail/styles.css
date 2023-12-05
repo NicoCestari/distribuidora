@@ -38,3 +38,8 @@ img {
     max-width: 100px;
     height: auto;
 }
+
+.btn-btn-primary{
+    background-color: #141c29;
+    color: white;
+}
